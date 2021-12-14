@@ -2,27 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 public class MenuUIHandler : MonoBehaviour
 {
-    public static MenuUIHandler Instance;
+    public Text NameInput;
 
-    public string nameInput;
-
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-        }
-
-        Instance = this;
-        //DontDestroyOnLoad(gameObject);
-    }
+    public static string name;
 
     public void StartNew()
     {
@@ -38,8 +27,8 @@ public class MenuUIHandler : MonoBehaviour
 #endif
     }
 
-    public void ReadStringInput(string s)
+    public void ReadNameInput()
     {
-        nameInput = s;
+        name = NameInput.text;
     }
 }
